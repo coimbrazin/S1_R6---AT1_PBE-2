@@ -1,5 +1,5 @@
 import express from 'express';
-import { EnvVar } from './config/EnvVar';
+
 import router from './routes/routes';
 import { initializeDatabase } from './database/connection.database';
 
