@@ -1,5 +1,5 @@
 import express from 'express';
-
+import { EnvVar } from './config/EnvVar';
 import router from './routes/routes';
 import { initializeDatabase } from './database/connection.database';
 
@@ -8,7 +8,7 @@ app.use(express.json());
 app.use('/', router);
 
 initializeDatabase().then(() => {
-    app.listen(Number(process.env.DB_PORT), () => {
+    app.listen(process.env.SERVER_PORT, () => {
         console.log(`Servidor rodando na porta ${process.env.SERVER_PORT}`);
     });
 }).catch(err => {
