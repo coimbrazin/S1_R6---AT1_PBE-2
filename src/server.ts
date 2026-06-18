@@ -8,7 +8,7 @@ app.use(express.json());
 app.use('/', router);
 
 initializeDatabase().then(() => {
-    app.listen(process.env.SERVER_PORT, () => {
+    app.listen(Number(process.env.DB_PORT), () => {
         console.log(`Servidor rodando na porta ${process.env.SERVER_PORT}`);
     });
 }).catch(err => {
