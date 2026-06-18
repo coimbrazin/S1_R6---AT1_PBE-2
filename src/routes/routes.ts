@@ -15,4 +15,11 @@ router.use('/', clienteRoutes);
 router.use('/', PedidoRouter);
 router.use('/', ItensPedidoRouter);
 
+// health
+router.get("/health", (req, res) => {
+    res.status(200).json({
+        message: "API rodando normalmente"
+    });
+});
+
 export default router;
