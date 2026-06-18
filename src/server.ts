@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'node:path';
 import { EnvVar } from './config/EnvVar';
 import router from './routes/routes';
 import { initializeDatabase } from './database/connection.database';
@@ -6,6 +7,7 @@ import { initializeDatabase } from './database/connection.database';
 const app = express();
 
 app.use(express.json());
+app.use(express.static(path.resolve('uploads')));
 app.use('/', router);
 
 initializeDatabase()
